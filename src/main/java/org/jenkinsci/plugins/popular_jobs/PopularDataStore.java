@@ -2,6 +2,7 @@ package org.jenkinsci.plugins.popular_jobs;
 
 import hudson.model.Job;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -37,7 +38,8 @@ public class PopularDataStore {
     }
     
     public static class Score {
-        private Job job; 
+        private final Date timestamp;
+        private Job job;
         private int score; 
         private PopularExtension provider;
 
@@ -45,6 +47,7 @@ public class PopularDataStore {
             this.job = job;
             this.score = score;
             this.provider = provider;
+            this.timestamp = new Date();
         }
 
         public Job getJob() {
@@ -57,6 +60,10 @@ public class PopularDataStore {
 
         public PopularExtension getProvider() {
             return provider;
+        }
+
+        public Date getTimestamp() {
+            return timestamp;
         }
     }
 }
