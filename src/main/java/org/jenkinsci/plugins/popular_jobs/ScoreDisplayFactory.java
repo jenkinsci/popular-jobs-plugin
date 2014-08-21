@@ -19,6 +19,7 @@ import java.util.Collections;
 public class ScoreDisplayFactory extends TransientProjectActionFactory {
     @Override
     public Collection<? extends Action> createFor(AbstractProject target) {
+        System.out.println("Factory called");
         return Collections.singleton(new ProjectScoreDisplayAction(target));
     }
 }
