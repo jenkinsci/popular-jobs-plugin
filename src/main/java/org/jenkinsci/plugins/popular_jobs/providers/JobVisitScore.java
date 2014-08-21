@@ -7,11 +7,9 @@ import org.jenkinsci.plugins.popular_jobs.PopularExtension;
 import org.kohsuke.stapler.StaplerRequest;
 
 /**
- * Created with IntelliJ IDEA.
- * User: 23052130
- * Date: 2014-08-21
- * Time: 11:53
- * To change this template use File | Settings | File Templates.
+ * Scores based on a plain page visit.
+ *
+ * @author &lt;robert.sandell@gmail.com&gt;
  */
 @Extension
 public class JobVisitScore extends PopularExtension {

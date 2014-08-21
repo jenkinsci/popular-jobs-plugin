@@ -4,11 +4,9 @@ import hudson.model.Action;
 import hudson.model.Job;
 
 /**
- * Created with IntelliJ IDEA.
- * User: 23052130
- * Date: 2014-08-21
- * Time: 12:12
- * To change this template use File | Settings | File Templates.
+ * Displays the project's score on the main page.
+ *
+ * @author &lt;robert.sandell@gmail.com&gt;
  */
 public class ProjectScoreDisplayAction implements Action {
     private Job myJob;

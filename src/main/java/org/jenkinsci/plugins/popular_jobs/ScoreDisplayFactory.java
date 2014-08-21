@@ -9,11 +9,9 @@ import java.util.Collection;
 import java.util.Collections;
 
 /**
- * Created with IntelliJ IDEA.
- * User: 23052130
- * Date: 2014-08-21
- * Time: 12:07
- * To change this template use File | Settings | File Templates.
+ * Factory of {@link ProjectScoreDisplayAction}.
+ *
+ * @author &lt;robert.sandell@gmail.com&gt;
  */
 @Extension
 public class ScoreDisplayFactory extends TransientProjectActionFactory {

@@ -7,11 +7,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created with IntelliJ IDEA.
- * User: 23052130
- * Date: 2014-08-21
- * Time: 11:46
- * To change this template use File | Settings | File Templates.
+ * Stores the scores somewhere.
+ *
+ * @author &lt;robert.sandell@gmail.com&gt;
  */
 public class PopularDataStore {
     //temporary measure
