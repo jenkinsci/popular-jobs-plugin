@@ -1,6 +1,9 @@
 package org.jenkinsci.plugins.popular_jobs;
 
+import com.google.common.collect.LinkedHashMultimap;
+import com.google.common.collect.Multimap;
 import hudson.model.Job;
+import org.apache.commons.collections.MultiMap;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -13,12 +16,12 @@ import java.util.Map;
  */
 public class PopularDataStore {
     //temporary measure
-    private static Map<Job, Map<PopularExtension, Score>> data = new HashMap<Job, Map<PopularExtension, Score>>();
+    private static Map<Job, Multimap<PopularProvider, Score>> data = new HashMap<>();
     
-    public static void store(Job job, int score, PopularExtension provider) {
-        Map<PopularExtension, Score> map = data.get(job);
+    public static void store(Job job, int score, PopularProvider provider) {
+        Multimap<PopularProvider, Score> map = data.get(job);
         if (map == null) {
-            map = new HashMap<PopularExtension, Score>();
+            map = LinkedHashMultimap.create();
             data.put(job, map);
         }
         map.put(provider, new Score(job, score, provider));
@@ -26,7 +29,7 @@ public class PopularDataStore {
 
     public static int getScore(Job j) {
         int s = 0;
-        Map<PopularExtension, Score> map = data.get(j);
+        Multimap<PopularProvider, Score> map = data.get(j);
         if (map != null) {
             for(Score d: map.values()) {
                 s += d.getScore();
@@ -39,9 +42,9 @@ public class PopularDataStore {
         private final Date timestamp;
         private Job job;
         private int score; 
-        private PopularExtension provider;
+        private PopularProvider provider;
 
-        public Score(Job job, int score, PopularExtension provider) {
+        public Score(Job job, int score, PopularProvider provider) {
             this.job = job;
             this.score = score;
             this.provider = provider;
@@ -56,7 +59,7 @@ public class PopularDataStore {
             return score;
         }
 
-        public PopularExtension getProvider() {
+        public PopularProvider getProvider() {
             return provider;
         }
 
