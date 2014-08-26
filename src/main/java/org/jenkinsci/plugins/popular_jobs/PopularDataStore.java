@@ -16,7 +16,7 @@ import java.util.Map;
  */
 public class PopularDataStore {
     //temporary measure
-    private static Map<Job, Multimap<PopularProvider, Score>> data = new HashMap<>();
+    private static Map<Job, Multimap<PopularProvider, Score>> data = new HashMap<Job, Multimap<PopularProvider, Score>>();
     
     public static void store(Job job, int score, PopularProvider provider) {
         Multimap<PopularProvider, Score> map = data.get(job);
